@@ -1,6 +1,6 @@
 import Initialization from './Initialization.js';
-import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
-import crypto from 'crypto';
+import { AuthMethodScope, AuthMethodType } from '../node_modules/@lit-protocol/constants';
+import crypto from '../node_modules/@types/node/crypto.d.ts';
 
 class ViewControl extends Initialization {
     constructor() {

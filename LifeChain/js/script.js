@@ -1,125 +1,250 @@
-import View from './View.js';
+import View from './View.js'
 
 document.addEventListener('DOMContentLoaded', function () {
-
-    const connectMetamaskButton = document.getElementById('connectMetamask');
-    const fundNodeButton = document.getElementById('fundNode');
+    // HTML要素の取得
+    const connectMetamaskButton = document.getElementById('connectMetamaskButton');
+    const fundNodeButton = document.getElementById('fundNodeButton');
     const fileInput = document.getElementById('fileInput');
-    const archiveIdDisplay = document.getElementById('archiveId');
+    const makeArchiveIdButton = document.getElementById('makeArchiveIdButton');
     const ethereumAddressInput = document.getElementById('ethereumAddressInput');
-    const addAddressButton = document.getElementById('addAddress');
-    const confirmAddressesButton = document.getElementById('confirmAddresses');
-    const mintNFTButton = document.getElementById('mintNFT');
-    const uploadArchiveButton = document.getElementById('uploadArchive');
-    const idInput = document.getElementById('idInput');
-    const fileTypeInput = document.getElementById('fileTypeInput');
-    const viewArchiveButton = document.getElementById('viewArchive');
-    const dataUrlDisplay = document.getElementById('dataUrl');
+    const addAccessControlButton = document.getElementById('addAccessControlButton');
+    const confirmAccessControlButton = document.getElementById('confirmAccessControlButton');
+    const mintNFTButton = document.getElementById('mintNFTButton');
+    const encryptAndUploadButton = document.getElementById('encryptAndUploadButton');
+    const archiveIdInput = document.getElementById('archiveIdInput');
+    const encryptedFileTypeInput = document.getElementById('encryptedFileTypeInput');
+    const decryptFileButton = document.getElementById('decryptFileButton');
+    const viewUrl = document.getElementById('viewUrl');
 
-    // 各ボタンのイベントリスナーの設定
-    connectMetamaskButton.addEventListener('click', connectMetamask);
-    fundNodeButton.addEventListener('click', fundNode);
-    addAddressButton.addEventListener('click', addAddress);
-    confirmAddressesButton.addEventListener('click', confirmAddresses);
-    mintNFTButton.addEventListener('click', mintNFT);
-    uploadArchiveButton.addEventListener('click', uploadArchive);
-    viewArchiveButton.addEventListener('click', viewArchive);
-
-
+    // 初期状態のボタンを非活性化
+    fundNodeButton.disabled = true;
+    makeArchiveIdButton.disabled = true;
+    addAccessControlButton.disabled = true;
+    confirmAccessControlButton.disabled = true;
+    mintNFTButton.disabled = true;
+    encryptAndUploadButton.disabled = true;
+    decryptFileButton.disabled = true;
 
     let view = new View();
 
-    //Initialization class
-    //AuthSigの取得
-    const onClickConnectMetamask = async () => {
-        console.log("#onClickConnectMetamask");
-        view.getAuthSig();
+    // MetaMaskとの接続
+    connectMetamaskButton.addEventListener('click', async function () {
+        try {
+            // getAuthSigメソッドを使用してMetaMaskに接続
+            await view.getAuthSig();
 
-    }
-    connectMetamaskButton.onclick = onClickConnectMetamask;
-    //データ保存料の支払い
-    const onClickFundNode = async () => {
-        console.log("#onClickFundNode");
+            // 接続成功後、checkIrysNodeBalanceメソッドを実行して残高を確認
+            const balance = await view.checkIrysNodeBalance();
+            document.getElementById('balanceMessage').innerText = `現在の残高: ${balance}`;
+
+            // 次のステップへ進むためのボタンを活性化
+            fundNodeButton.disabled = false;
+        } catch (error) {
+            console.error('MetaMaskの接続に失敗しました。', error);
+            document.getElementById('balanceMessage').innerText = 'MetaMaskの接続に失敗しました。';
+        }
+    });
+
+
+    // データ保存料金の支払い
+    fundNodeButton.addEventListener('click', function () {
+        // ここに料金支払い処理を実装
+        console.log("fundNode");
         view.fundNode();
+        // 成功した場合、次のステップへ進むためのボタンを活性化
+        makeArchiveIdButton.disabled = false;
+    });
 
-    }
-    fundNodeButton.onclick = onClickFundNode;
+    // アーカイブIDの生成
+    makeArchiveIdButton.addEventListener('click', function () {
+        const file = fileInput.files[0];
+        if (file) {
+            view.makeArchiveId(file).then(archiveId => {
+                // ここにアーカイブIDを表示する処理
+            });
+        } else {
+            alert('ファイルを選択してください。');
+        }
 
-
-
-    //ViewControl Class
-
-    let addresses = [];
-
-    addAddressButton.addEventListener('click', () => {
-        if (addressInput.value) {
-            addresses.push(addressInput.value);
-            addressListDiv.innerHTML += `<p>${addressInput.value}</p>`;
-            addressInput.value = ''; // 入力フィールドをクリア
+        addAccessControlButton.disabled = false;
+        confirmAccessControlButton.disabled = false;
+    });
+    // 閲覧権の追加
+    addAccessControlButton.addEventListener('click', function () {
+        const address = ethereumAddressInput.value;
+        if (address) {
+            view.addAccessControlForArchive(address).then(() => {
+                // ここにアクセス制御の追加が成功した場合の処理
+            });
+        } else {
+            alert('Ethereumアドレスを入力してください。');
         }
     });
 
-    confirmAddressesButton.addEventListener('click', () => {
-        // 閲覧権を付与するユーザーを確定する処理
-        console.log("確定されたアドレス:", addresses);
-        // ここでaddresses配列をViewControlクラスに渡す
+    // 閲覧権の確定
+    confirmAccessControlButton.addEventListener('click', function () {
+        // 閲覧権の確定処理を実装
+        // 成功した場合、NFT発行およびアップロードのボタンを活性化
+        mintNFTButton.disabled = false;
+        encryptAndUploadButton.disabled = false;
     });
 
-    grantAccessButton.addEventListener('click', () => {
-        // mintpkp関数を実行
-        console.log("mintpkp関数を実行");
-        // ここでViewControlクラスのmintpkpメソッドを呼び出す
+    // NFTの発行
+    mintNFTButton.addEventListener('click', function () {
+        const archiveId = // アーカイブIDを取得する処理
+            view.mintpkp(archiveId).then(() => {
+                // ここにNFT発行成功時の処理
+            });
     });
 
 
-    //Storage Class
-
-    fileInput.addEventListener('change', (event) => {
-        fileInput.addEventListener('change', (event) => {
-            const files = event.target.files;
-            console.log("fileInput");
-            if (files.length > 0) {
-                const file = files[0];
-                console.log("アップロードされたファイル:", file.name, file.size, file.type);
-                fileDetails.innerHTML = `
-                <p>ファイル名: ${file.name}</p>
-                <p>ファイルサイズ: ${file.size} bytes</p>
-                <p>ファイルタイプ: ${file.type}</p>
-            `;
-                cancelUploadButton.style.display = 'block'; // キャンセルボタンを表示
-            } else {
-                fileDetails.innerHTML = ''; // ファイル詳細をクリア
-                cancelUploadButton.style.display = 'none'; // キャンセルボタンを隠す
-            }
-        });
-
-
-        // キャンセルボタンのイベントリスナー
-        cancelUploadButton.addEventListener('click', () => {
-            fileInput.value = ''; // ファイル入力をクリア
-            fileDetails.innerHTML = ''; // ファイル詳細をクリア
-            cancelUploadButton.style.display = 'none'; // キャンセルボタンを隠す
-        });
-
-        const onClickAddArchive = async () => {
-            console.log("#onClickAddArchive");
-            view.dataStore();
-
+    // デジタルアーカイブの暗号化とアップロード
+    encryptAndUploadButton.addEventListener('click', function () {
+        const file = fileInput.files[0];
+        if (file) {
+            view.encryptAndUploadFile(file).then(() => {
+                // ここにアップロード成功時の処理
+            });
+        } else {
+            alert('ファイルを選択してください。');
         }
-        addArchiveButton.onclick = onClickAddArchive;
+    });
 
-        //console.log("object", buildLitNode);
-        // console.log("Hello World");
-
-
-        // let viewcontrol = new ViewControl();
-
-
-
+    // ファイルの復号化と閲覧
+    ddecryptFileButton.addEventListener('click', function () {
+        const id = archiveIdInput.value;
+        const encryptedFileType = encryptedFileTypeInput.value;
+        if (id && encryptedFileType) {
+            view.decryptFile(id, encryptedFileType).then(dataUrl => {
+                viewUrl.innerText = dataUrl;
+            });
+        } else {
+            alert('アーカイブIDと暗号化ファイルタイプを入力してください。');
+        }
     });
 
 });
 
+
+
+
+
+
+// const connectMetamaskButton = document.getElementById('connectMetamask');
+// const fundNodeButton = document.getElementById('fundNode');
+// const fileInput = document.getElementById('fileInput');
+// const archiveIdDisplay = document.getElementById('archiveId');
+// const ethereumAddressInput = document.getElementById('ethereumAddressInput');
+// const addAddressButton = document.getElementById('addAddress');
+// const confirmAddressesButton = document.getElementById('confirmAddresses');
+// const mintNFTButton = document.getElementById('mintNFT');
+// const uploadArchiveButton = document.getElementById('uploadArchive');
+// const idInput = document.getElementById('idInput');
+// const fileTypeInput = document.getElementById('fileTypeInput');
+// const viewArchiveButton = document.getElementById('viewArchive');
+// const dataUrlDisplay = document.getElementById('dataUrl');
+
+// // 各ボタンのイベントリスナーの設定
+// connectMetamaskButton.addEventListener('click', connectMetamask);
+// fundNodeButton.addEventListener('click', fundNode);
+// addAddressButton.addEventListener('click', addAddress);
+// confirmAddressesButton.addEventListener('click', confirmAddresses);
+// mintNFTButton.addEventListener('click', mintNFT);
+// uploadArchiveButton.addEventListener('click', uploadArchive);
+// viewArchiveButton.addEventListener('click', viewArchive);
+
+
+
+// let view = new View();
+
+// //Initialization class
+// //AuthSigの取得
+// const onClickConnectMetamask = async () => {
+//     console.log("#onClickConnectMetamask");
+//     view.getAuthSig();
+
+// }
+// connectMetamaskButton.onclick = onClickConnectMetamask;
+// //データ保存料の支払い
+// const onClickFundNode = async () => {
+//     console.log("#onClickFundNode");
+//     view.fundNode();
+
+// }
+// fundNodeButton.onclick = onClickFundNode;
+
+
+
+// //ViewControl Class
+
+// let addresses = [];
+
+// addAddressButton.addEventListener('click', () => {
+//     if (addressInput.value) {
+//         addresses.push(addressInput.value);
+//         addressListDiv.innerHTML += `<p>${addressInput.value}</p>`;
+//         addressInput.value = ''; // 入力フィールドをクリア
+//     }
+// });
+
+// confirmAddressesButton.addEventListener('click', () => {
+//     // 閲覧権を付与するユーザーを確定する処理
+//     console.log("確定されたアドレス:", addresses);
+//     // ここでaddresses配列をViewControlクラスに渡す
+// });
+
+// grantAccessButton.addEventListener('click', () => {
+//     // mintpkp関数を実行
+//     console.log("mintpkp関数を実行");
+//     // ここでViewControlクラスのmintpkpメソッドを呼び出す
+// });
+
+
+// //Storage Class
+
+// fileInput.addEventListener('change', (event) => {
+//     fileInput.addEventListener('change', (event) => {
+//         const files = event.target.files;
+//         console.log("fileInput");
+//         if (files.length > 0) {
+//             const file = files[0];
+//             console.log("アップロードされたファイル:", file.name, file.size, file.type);
+//             fileDetails.innerHTML = `
+//             <p>ファイル名: ${file.name}</p>
+//             <p>ファイルサイズ: ${file.size} bytes</p>
+//             <p>ファイルタイプ: ${file.type}</p>
+//         `;
+//             cancelUploadButton.style.display = 'block'; // キャンセルボタンを表示
+//         } else {
+//             fileDetails.innerHTML = ''; // ファイル詳細をクリア
+//             cancelUploadButton.style.display = 'none'; // キャンセルボタンを隠す
+//         }
+//     });
+
+
+//     // キャンセルボタンのイベントリスナー
+//     cancelUploadButton.addEventListener('click', () => {
+//         fileInput.value = ''; // ファイル入力をクリア
+//         fileDetails.innerHTML = ''; // ファイル詳細をクリア
+//         cancelUploadButton.style.display = 'none'; // キャンセルボタンを隠す
+//     });
+
+//     const onClickAddArchive = async () => {
+//         console.log("#onClickAddArchive");
+//         view.dataStore();
+
+//     }
+//     addArchiveButton.onclick = onClickAddArchive;
+
+//     //console.log("object", buildLitNode);
+//     // console.log("Hello World");
+
+
+//     // let viewcontrol = new ViewControl();
+
+
+
+// });
 
 // const connectWalletButton = document.getElementById('connectWallet');
 

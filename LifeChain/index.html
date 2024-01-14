@@ -1,108 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>デジタルアーカイブ保存・閲覧アプリ</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>LifeChain Platform</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="/output.css" rel="stylesheet">
-    <style>
-        /* カスタムCSS */
-    </style>
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">デジタルアーカイブ保存・閲覧アプリ</h1>
-        <!-- メインメニュー -->
-        <div class="text-center mt-4">
-            <button class="btn btn-primary" id="saveArchive">デジタルアーカイブを保存する</button>
-            <button class="btn btn-secondary" id="viewArchive">保存したデジタルアーカイブ閲覧する</button>
-        </div>
+    <header class="bg-primary text-white text-center py-5 mb-5">
+        <h1>LifeChain Platform</h1>
+    </header>
+    <main class="container">
+        <section id="introduction" class="mb-5">
+            <p>「LifeChain platform」は、個人の精神的資産をデジタル化し、分散型ストレージと暗号化で安全に継承するシステムです。</p>
+        </section>
 
-        <!-- 保存フロー -->
-        <div id="saveFlow" style="display: none;">
-            <!-- MetaMask接続 -->
-            <div id="connectWallet">
-                <button class="btn btn-info mt-3">MetaMaskと接続</button>
-            </div>
-            <!-- 料金の支払い -->
-            <div id="payFee" style="display: none;">
-                <button class="btn btn-warning mt-3">デジタルアーカイブ保存料金を支払う</button>
-            </div>
-            <!-- データアップロードとID生成 -->
-            <div id="uploadData" style="display: none;">
-                <input type="file" class="form-control mt-3">
-                <button class="btn btn-success mt-3">アップロード</button>
-            </div>
-            <!-- 閲覧権の設定 -->
-            <div id="setAccess" style="display: none;">
-                <input type="text" class="form-control mt-3" placeholder="Ethereumアドレス">
-                <button class="btn btn-secondary mt-3">アドレスを追加</button>
-            </div>
-            <!-- NFTの発行 -->
-            <div id="mintNFT" style="display: none;">
-                <button class="btn btn-dark mt-3">NFTを発行</button>
-            </div>
-            <!-- アップロードの確定 -->
-            <div id="finalizeUpload" style="display: none;">
-                <button class="btn btn-success mt-3">デジタルアーカイブをアップロードする</button>
-            </div>
-        </div>
+        <section id="connectMetamask" class="mb-5">
+            <h2>MetaMaskとの接続</h2>
+            <button id="connectMetamaskButton" class="btn btn-secondary mb-3">MetaMaskと接続</button>
+            <p id="balanceMessage"></p>
+        </section>
 
-        <!-- 閲覧フロー -->
-        <div id="viewFlow" style="display: none;">
-            <!-- MetaMask接続 -->
-            <div id="connectWalletView">
-                <button class="btn btn-info mt-3">MetaMaskと接続</button>
+        <section id="archiveStorage" class="mb-5">
+            <h2>デジタルアーカイブを保存する</h2>
+            <button id="fundNodeButton" class="btn btn-secondary mb-3">デジタルアーカイブ保存料金を支払う</button>
+            <div class="mb-3">
+                <input type="file" id="fileInput" class="form-control">
+                <button id="makeArchiveIdButton" class="btn btn-primary mt-3">アーカイブIDを生成する</button>
             </div>
-            <!-- IDとタイプ入力 -->
-            <div id="inputIDType" style="display: none;">
-                <input type="text" class="form-control mt-3" placeholder="ID">
-                <input type="text" class="form-control mt-3" placeholder="Encrypted File Type">
-                <button class="btn btn-primary mt-3">デジタルアーカイブを閲覧する</button>
+            <div class="mb-3">
+                <input type="text" id="ethereumAddressInput" placeholder="Ethereumアドレス" class="form-control">
+                <button id="addAccessControlButton" class="btn btn-primary mt-3">閲覧権を付与するユーザーを追加</button>
             </div>
-        </div>
-    </div>
+            <button id="confirmAccessControlButton" class="btn btn-primary mb-3">閲覧権を確定する</button>
+            <button id="mintNFTButton" class="btn btn-info mb-3">NFTを発行</button>
+            <button id="encryptAndUploadButton" class="btn btn-success">デジタルアーカイブをアップロードする</button>
+        </section>
 
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+        <section id="viewArchive" class="mb-5">
+            <h2>保存したデジタルアーカイブを閲覧する</h2>
+            <div class="mb-3">
+                <input type="text" id="archiveIdInput" placeholder="アーカイブID" class="form-control">
+                <input type="text" id="encryptedFileTypeInput" placeholder="暗号化ファイルタイプ" class="form-control mt-3">
+                <button id="decryptFileButton" class="btn btn-primary mt-3">デジタルアーカイブを閲覧する</button>
+            </div>
+            <p id="viewUrl" class="mt-3"></p>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@lit-protocol/lit-node-client-vanilla/lit-node-client.js"></script>
     <script type="module" src="./js/script.js"></script>
-    <script>
-        // JavaScriptコード
-    </script>
+
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
