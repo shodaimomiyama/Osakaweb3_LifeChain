@@ -1,0 +1,22 @@
+{
+  "name": "momiyamashodai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@irys/sdk": "^0.1.3",
+    "@lit-protocol/contracts-sdk": "^2.2.61",
+    "@lit-protocol/lit-node-client": "^2.2.61",
+    "helia": "^2.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "tailwindcss": "^3.4.1"
+  }
+}
