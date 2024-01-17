@@ -61,11 +61,11 @@ Arweaveにアップロードしたデジタルアーカイブの出自の管理
 
 
 
-##　行き詰まりポイント
+## 行き詰まりポイント
 
 Initialization classのimport { providers, ethers } from "ethers";について、htmlファイルをブラウザで表示させてjsファイルと繋ごうとすると、consoleにUncaught TypeError: Failed to resolve module specifier "ethers". Relative references must start with either "/", "./", or "../".のエラー。
 
-最新のJavaScriptでは、バンドラーを使用せずにimport文をフロントエンドで直接動作させることが可能とのことなので、import { ethers } from 'https://cdn.ethers.io/lib/ethers-5.2.esm.min.js';に変更してみたが、
+最新のJavaScriptでは、バンドラーを使用せずにimport文をフロントエンドで直接動作させることが可能とのことなので、import { ethers } from 'https://cdn.ethers.io/lib/ethers-5.2.esm.min.js'; に変更してみたが、
 
 ccess to script at 'https://cdn.ethers.io/lib/ethers-5.2.esm.min.js' from origin 'http://127.0.0.1:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
