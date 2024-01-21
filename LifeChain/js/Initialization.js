@@ -1,5 +1,5 @@
-import { WebIrys } from "@irys/sdk";
-import { providers, ethers } from "ethers";
+import { WebIrys } from "../node_modules/@irys/sdk/build/cjs/web/irys.js";
+// import { providers, ethers } from 'https://cdn.ethers.io/lib/ethers-5.2.esm.min.js';
 
 class Initialization {
     constructor() {

@@ -24,8 +24,8 @@ class Storage extends ViewControl {
         return zipBlob;
     }
 
-    async uploadFile() {
-        const file = this.archiveFile; // ViewControl classでmakeArchiveId()を実行した際に保存されたファイルを利用
+    async uploadFile(file) {
+        // const file = this.archiveFile; // ViewControl classでmakeArchiveId()を実行した際に保存されたファイルを利用
         const irys = await this.getWebIrys();
 
         try {

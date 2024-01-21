@@ -4,42 +4,795 @@
 <head>
     <meta charset="UTF-8">
     <title>LifeChain Platform</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
 </head>
 
 <body>
-    <header class="bg-primary text-white text-center py-5 mb-5">
-        <h1>LifeChain Platform</h1>
-    </header>
-    <main class="container">
-        <section id="introduction" class="mb-5">
-            <p>「LifeChain platform」は、個人の精神的資産をデジタル化し、分散型ストレージと暗号化で安全に継承するシステムです。</p>
-        </section>
 
-        <section id="connectMetamask" class="mb-5">
-            <h2>MetaMaskとの接続</h2>
-            <button id="connectMetamaskButton" class="btn btn-secondary mb-3">MetaMaskと接続</button>
-            <p id="balanceMessage"></p>
-        </section>
+    <section class="w-full px-8 text-gray-700 bg-white" {!! $attributes ?? '' !!}>
+        <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
+            <div class="relative flex flex-col md:flex-row">
+                <a href="#_"
+                    class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
+                    <span class="mx-auto text-xl font-black leading-none text-gray-900 select-none">LifeChain
+                        platform<span class="text-indigo-600" data-primary="indigo-600">.</span></span>
+                </a>
+                <nav
+                    class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
+                    <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Home</a>
+                    <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Features</a>
+                    <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Pricing</a>
+                    <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                </nav>
+            </div>
+
+            <button type="button" id="connectMetamaskButton"
+                class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2">
+                <svg aria-hidden="true" class="w-6 h-5 me-2 -ms-1" viewBox="0 0 2405 2501" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1512_1323)">
+                        <path d="M2278.79 1730.86L2133.62 2221.69L1848.64 2143.76L2278.79 1730.86Z" fill="#E4761B"
+                            stroke="#E4761B" stroke-width="5.94955" />
+                        <path d="M1848.64 2143.76L2123.51 1767.15L2278.79 1730.86L1848.64 2143.76Z" fill="#E4761B"
+                            stroke="#E4761B" stroke-width="5.94955" />
+                        <path
+                            d="M2065.2 1360.79L2278.79 1730.86L2123.51 1767.15L2065.2 1360.79ZM2065.2 1360.79L2202.64 1265.6L2278.79 1730.86L2065.2 1360.79Z"
+                            fill="#F6851B" stroke="#F6851B" stroke-width="5.94955" />
+                        <path
+                            d="M1890.29 1081.17L2285.34 919.338L2265.7 1007.99L1890.29 1081.17ZM2253.21 1114.48L1890.29 1081.17L2265.7 1007.99L2253.21 1114.48Z"
+                            fill="#763D16" stroke="#763D16" stroke-width="5.94955" />
+                        <path
+                            d="M2253.21 1114.48L2202.64 1265.6L1890.29 1081.17L2253.21 1114.48ZM2332.34 956.82L2265.7 1007.99L2285.34 919.338L2332.34 956.82ZM2253.21 1114.48L2265.7 1007.99L2318.65 1052.01L2253.21 1114.48Z"
+                            fill="#763D16" stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1542.24 2024.17L1641 2055.7L1848.64 2143.75L1542.24 2024.17Z" fill="#E2761B"
+                            stroke="#E2761B" stroke-width="5.94955" />
+                        <path
+                            d="M2202.64 1265.6L2253.21 1114.48L2296.64 1147.8L2202.64 1265.6ZM2202.64 1265.6L1792.71 1130.55L1890.29 1081.17L2202.64 1265.6Z"
+                            fill="#763D16" stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1987.86 617.696L1890.29 1081.17L1792.71 1130.55L1987.86 617.696Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M2285.34 919.338L1890.29 1081.17L1987.86 617.696L2285.34 919.338Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1987.86 617.696L2400.16 570.1L2285.34 919.338L1987.86 617.696Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M2202.64 1265.6L2065.2 1360.79L1792.71 1130.55L2202.64 1265.6Z" fill="#F6851B"
+                            stroke="#F6851B" stroke-width="5.94955" />
+                        <path d="M2382.31 236.33L2400.16 570.1L1987.86 617.696L2382.31 236.33Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M2382.31 236.33L1558.3 835.45L1547.59 429.095L2382.31 236.33Z" fill="#E2761B"
+                            stroke="#E2761B" stroke-width="5.94955" />
+                        <path d="M934.789 380.309L1547.59 429.095L1558.3 835.449L934.789 380.309Z" fill="#F6851B"
+                            stroke="#F6851B" stroke-width="5.94955" />
+                        <path d="M1792.71 1130.55L1558.3 835.449L1987.86 617.696L1792.71 1130.55Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1792.71 1130.55L2065.2 1360.79L1682.65 1403.04L1792.71 1130.55Z" fill="#E4761B"
+                            stroke="#E4761B" stroke-width="5.94955" />
+                        <path d="M1682.65 1403.04L1558.3 835.449L1792.71 1130.55L1682.65 1403.04Z" fill="#E4761B"
+                            stroke="#E4761B" stroke-width="5.94955" />
+                        <path d="M1987.86 617.696L1558.3 835.45L2382.31 236.33L1987.86 617.696Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M940.144 2134.24L1134.69 2337.11L869.939 2096.16L940.144 2134.24Z" fill="#C0AD9E"
+                            stroke="#C0AD9E" stroke-width="5.94955" />
+                        <path d="M1848.64 2143.75L1940.86 1793.33L2123.51 1767.15L1848.64 2143.75Z" fill="#CD6116"
+                            stroke="#CD6116" stroke-width="5.94955" />
+                        <path d="M151.234 1157.92L487.978 803.917L194.666 1115.67L151.234 1157.92Z" fill="#E2761B"
+                            stroke="#E2761B" stroke-width="5.94955" />
+                        <path
+                            d="M2123.51 1767.15L1940.86 1793.33L2065.2 1360.79L2123.51 1767.15ZM1558.3 835.449L1230.48 824.74L934.789 380.309L1558.3 835.449Z"
+                            fill="#F6851B" stroke="#F6851B" stroke-width="5.94955" />
+                        <path d="M2065.2 1360.79L1940.86 1793.33L1930.74 1582.12L2065.2 1360.79Z" fill="#E4751F"
+                            stroke="#E4751F" stroke-width="5.94955" />
+                        <path d="M1682.65 1403.04L2065.2 1360.79L1930.74 1582.12L1682.65 1403.04Z" fill="#CD6116"
+                            stroke="#CD6116" stroke-width="5.94955" />
+                        <path d="M1230.48 824.74L1558.3 835.449L1682.65 1403.04L1230.48 824.74Z" fill="#F6851B"
+                            stroke="#F6851B" stroke-width="5.94955" />
+                        <path
+                            d="M1230.48 824.74L345.784 6.08252L934.79 380.309L1230.48 824.74ZM934.195 2258.58L165.513 2496.56L12.0146 1910.53L934.195 2258.58Z"
+                            fill="#E4761B" stroke="#E4761B" stroke-width="5.94955" />
+                        <path d="M265.465 1304.27L555.803 1076.41L799.14 1132.93L265.465 1304.27Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M799.139 1132.93L555.803 1076.41L686.098 538.567L799.139 1132.93Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M194.666 1115.67L555.803 1076.41L265.465 1304.27L194.666 1115.67Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1930.74 1582.12L1780.81 1506.56L1682.65 1403.04L1930.74 1582.12Z" fill="#CD6116"
+                            stroke="#CD6116" stroke-width="5.94955" />
+                        <path d="M194.666 1115.67L169.083 980.618L555.803 1076.41L194.666 1115.67Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1749.88 1676.72L1780.81 1506.56L1930.74 1582.12L1749.88 1676.72Z" fill="#233447"
+                            stroke="#233447" stroke-width="5.94955" />
+                        <path d="M1940.86 1793.33L1749.88 1676.72L1930.74 1582.12L1940.86 1793.33Z" fill="#F6851B"
+                            stroke="#F6851B" stroke-width="5.94955" />
+                        <path
+                            d="M555.803 1076.41L169.082 980.618L137.55 866.982L555.803 1076.41ZM686.098 538.567L555.803 1076.41L137.55 866.982L686.098 538.567ZM686.098 538.567L1230.48 824.74L799.139 1132.93L686.098 538.567Z"
+                            fill="#763D16" stroke="#763D16" stroke-width="5.94955" />
+                        <path
+                            d="M799.14 1132.93L1230.48 824.74L1422.65 1411.96L799.14 1132.93ZM1422.65 1411.96L826.508 1399.47L799.14 1132.93L1422.65 1411.96Z"
+                            fill="#E4761B" stroke="#E4761B" stroke-width="5.94955" />
+                        <path
+                            d="M265.465 1304.27L799.14 1132.93L826.508 1399.47L265.465 1304.27ZM1682.65 1403.04L1422.65 1411.96L1230.48 824.74L1682.65 1403.04Z"
+                            fill="#F6851B" stroke="#F6851B" stroke-width="5.94955" />
+                        <path d="M1780.81 1506.56L1749.88 1676.72L1682.65 1403.04L1780.81 1506.56Z" fill="#CD6116"
+                            stroke="#CD6116" stroke-width="5.94955" />
+                        <path d="M345.784 6.08252L1230.48 824.74L686.098 538.567L345.784 6.08252Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M12.0146 1910.53L758.088 1879.59L934.195 2258.58L12.0146 1910.53Z" fill="#E4761B"
+                            stroke="#E4761B" stroke-width="5.94955" />
+                        <path d="M934.194 2258.58L758.088 1879.59L1124.58 1861.75L934.194 2258.58Z" fill="#CD6116"
+                            stroke="#CD6116" stroke-width="5.94955" />
+                        <path
+                            d="M1749.88 1676.72L1940.86 1793.33L2046.16 2041.42L1749.88 1676.72ZM826.508 1399.47L12.0146 1910.53L265.465 1304.27L826.508 1399.47ZM758.088 1879.59L12.0146 1910.53L826.508 1399.47L758.088 1879.59ZM1682.65 1403.04L1731.43 1580.33L1495.83 1594.02L1682.65 1403.04ZM1495.83 1594.02L1422.65 1411.96L1682.65 1403.04L1495.83 1594.02Z"
+                            fill="#F6851B" stroke="#F6851B" stroke-width="5.94955" />
+                        <path d="M1134.69 2337.11L934.194 2258.58L1631.48 2375.79L1134.69 2337.11Z" fill="#C0AD9E"
+                            stroke="#C0AD9E" stroke-width="5.94955" />
+                        <path d="M265.465 1304.27L151.234 1157.91L194.666 1115.67L265.465 1304.27Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1710.61 2288.92L1631.48 2375.79L934.194 2258.58L1710.61 2288.92Z" fill="#D7C1B3"
+                            stroke="#D7C1B3" stroke-width="5.94955" />
+                        <path d="M1748.09 2075.93L934.194 2258.58L1124.58 1861.75L1748.09 2075.93Z" fill="#E4761B"
+                            stroke="#E4761B" stroke-width="5.94955" />
+                        <path d="M934.194 2258.58L1748.09 2075.93L1710.61 2288.92L934.194 2258.58Z" fill="#D7C1B3"
+                            stroke="#D7C1B3" stroke-width="5.94955" />
+                        <path
+                            d="M137.55 866.982L110.777 409.462L686.098 538.567L137.55 866.982ZM194.665 1115.67L115.536 1035.35L169.082 980.618L194.665 1115.67Z"
+                            fill="#763D16" stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1289.38 1529.76L1422.65 1411.96L1403.61 1699.92L1289.38 1529.76Z" fill="#CD6116"
+                            stroke="#CD6116" stroke-width="5.94955" />
+                        <path d="M1422.65 1411.96L1289.38 1529.76L1095.43 1630.31L1422.65 1411.96Z" fill="#CD6116"
+                            stroke="#CD6116" stroke-width="5.94955" />
+                        <path d="M2046.16 2041.42L2009.87 2014.65L1749.88 1676.72L2046.16 2041.42Z" fill="#F6851B"
+                            stroke="#F6851B" stroke-width="5.94955" />
+                        <path d="M1095.43 1630.31L826.508 1399.47L1422.65 1411.96L1095.43 1630.31Z" fill="#CD6116"
+                            stroke="#CD6116" stroke-width="5.94955" />
+                        <path d="M1403.61 1699.92L1422.65 1411.96L1495.83 1594.02L1403.61 1699.92Z" fill="#E4751F"
+                            stroke="#E4751F" stroke-width="5.94955" />
+                        <path d="M89.3589 912.199L137.55 866.982L169.083 980.618L89.3589 912.199Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1403.61 1699.92L1095.43 1630.31L1289.38 1529.76L1403.61 1699.92Z" fill="#233447"
+                            stroke="#233447" stroke-width="5.94955" />
+                        <path d="M686.098 538.567L110.777 409.462L345.784 6.08252L686.098 538.567Z" fill="#763D16"
+                            stroke="#763D16" stroke-width="5.94955" />
+                        <path d="M1631.48 2375.79L1664.2 2465.03L1134.69 2337.12L1631.48 2375.79Z" fill="#C0AD9E"
+                            stroke="#C0AD9E" stroke-width="5.94955" />
+                        <path d="M1124.58 1861.75L1095.43 1630.31L1403.61 1699.92L1124.58 1861.75Z" fill="#F6851B"
+                            stroke="#F6851B" stroke-width="5.94955" />
+                        <path d="M826.508 1399.47L1095.43 1630.31L1124.58 1861.75L826.508 1399.47Z" fill="#E4751F"
+                            stroke="#E4751F" stroke-width="5.94955" />
+                        <path
+                            d="M1495.83 1594.02L1731.43 1580.33L2009.87 2014.65L1495.83 1594.02ZM826.508 1399.47L1124.58 1861.75L758.088 1879.59L826.508 1399.47Z"
+                            fill="#F6851B" stroke="#F6851B" stroke-width="5.94955" />
+                        <path d="M1495.83 1594.02L1788.55 2039.64L1403.61 1699.92L1495.83 1594.02Z" fill="#E4751F"
+                            stroke="#E4751F" stroke-width="5.94955" />
+                        <path d="M1403.61 1699.92L1788.55 2039.64L1748.09 2075.93L1403.61 1699.92Z" fill="#F6851B"
+                            stroke="#F6851B" stroke-width="5.94955" />
+                        <path
+                            d="M1748.09 2075.93L1124.58 1861.75L1403.61 1699.92L1748.09 2075.93ZM2009.87 2014.65L1788.55 2039.64L1495.83 1594.02L2009.87 2014.65Z"
+                            fill="#F6851B" stroke="#F6851B" stroke-width="5.94955" />
+                        <path
+                            d="M2068.18 2224.07L1972.99 2415.05L1664.2 2465.03L2068.18 2224.07ZM1664.2 2465.03L1631.48 2375.79L1710.61 2288.92L1664.2 2465.03Z"
+                            fill="#C0AD9E" stroke="#C0AD9E" stroke-width="5.94955" />
+                        <path
+                            d="M1710.61 2288.92L1768.92 2265.72L1664.2 2465.03L1710.61 2288.92ZM1664.2 2465.03L1768.92 2265.72L2068.18 2224.07L1664.2 2465.03Z"
+                            fill="#C0AD9E" stroke="#C0AD9E" stroke-width="5.94955" />
+                        <path d="M2009.87 2014.65L2083.05 2059.27L1860.54 2086.04L2009.87 2014.65Z" fill="#161616"
+                            stroke="#161616" stroke-width="5.94955" />
+                        <path
+                            d="M1860.54 2086.04L1788.55 2039.64L2009.87 2014.65L1860.54 2086.04ZM1834.96 2121.15L2105.66 2088.42L2068.18 2224.07L1834.96 2121.15Z"
+                            fill="#161616" stroke="#161616" stroke-width="5.94955" />
+                        <path
+                            d="M2068.18 2224.07L1768.92 2265.72L1834.96 2121.15L2068.18 2224.07ZM1768.92 2265.72L1710.61 2288.92L1748.09 2075.93L1768.92 2265.72ZM1748.09 2075.93L1788.55 2039.64L1860.54 2086.04L1748.09 2075.93ZM2083.05 2059.27L2105.66 2088.42L1834.96 2121.15L2083.05 2059.27Z"
+                            fill="#161616" stroke="#161616" stroke-width="5.94955" />
+                        <path
+                            d="M1834.96 2121.15L1860.54 2086.04L2083.05 2059.27L1834.96 2121.15ZM1748.09 2075.93L1834.96 2121.15L1768.92 2265.72L1748.09 2075.93Z"
+                            fill="#161616" stroke="#161616" stroke-width="5.94955" />
+                        <path d="M1860.54 2086.04L1834.96 2121.15L1748.09 2075.93L1860.54 2086.04Z" fill="#161616"
+                            stroke="#161616" stroke-width="5.94955" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_1512_1323">
+                            <rect width="2404" height="2500" fill="white" transform="translate(0.519043 0.132812)" />
+                        </clipPath>
+                    </defs>
+                </svg>
+                Connect with MetaMask
+            </button>
+        </div>
+    </section>
+
+    <section class="h-auto bg-white">
+        <div class="px-10 py-24 mx-auto max-w-7xl">
+            <div class="w-full mx-auto text-left md:text-center">
+                <h1
+                    class="mb-6 text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-900 sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight">
+                    The <span
+                        class="w-full text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 lg:inline">LifeChain</span>
+                    for<br class="lg:block hidden"> all your important memories. </h1>
+                <p class="px-0 mb-6 text-lg text-gray-600 md:text-xl lg:px-24"> 「LifeChain
+                    platform」は、個人の精神的資産をデジタル化し、分散型ストレージと暗号化で安全に継承するシステムです。将来的には、データエコノミクスとスマートコントラクトを統合し、自らの人生が死後も価値を生み出し続けるシステムを目指します。
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main class="container mx-auto px-4">
+        <!-- 各セクションのコードをここに追加 -->
 
         <section id="archiveStorage" class="mb-5">
-            <h2>デジタルアーカイブを保存する</h2>
-            <button id="fundNodeButton" class="btn btn-secondary mb-3">デジタルアーカイブ保存料金を支払う</button>
-            <div class="mb-3">
-                <input type="file" id="fileInput" class="form-control">
-                <button id="makeArchiveIdButton" class="btn btn-primary mt-3">アーカイブIDを生成する</button>
+            <section class="px-2 py-32 bg-white md:px-0">
+                <div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+                    <div class="flex flex-wrap items-center sm:-mx-3">
+                        <div class="w-full md:w-1/2 md:px-3">
+                            <div
+                                class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+                                <h1
+                                    class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+                                    <span class="block xl:inline">デジタルアーカイブを</span>
+                                    <span class="block text-indigo-600 xl:inline" data-primary="indigo-600">保存する</span>
+                                </h1>
+                                <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">It's
+                                    never
+                                    been
+                                    easier to build beautiful websites that convey your message and tell your story.</p>
+                                <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+                                    <a href="#archiveStorageSection"
+                                        class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
+                                        data-primary="indigo-600" data-rounded="rounded-md">
+                                        Try It
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl"
+                                data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                                <img src="https://cdn.devdojo.com/images/november2020/hero-image.jpeg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="px-2 pt-32 bg-white md:px-0">
+                <div class="container items-center max-w-6xl px-5 mx-auto space-y-6 text-center">
+                    <h1 id="archiveStorageSection" class="text-5xl font-extrabold dark:text-white"
+                        style="padding: 50px">1. Pay the storage
+                        fee<small class="ms-2 font-semibold text-gray-500 dark:text-gray-400"
+                            style="padding-left: 20px;">デジタルアーカイブ保存料金
+                        </small></h1>
+                    <p
+                        class="w-full mx-auto text-base text-left text-gray-500 md:max-w-md sm:text-lg lg:text-2xl md:max-w-3xl md:text-center">
+                        Award winning pages that will take your game to the next level!
+                    </p>
+                    <div class="relative flex flex-col justify-center md:flex-row md:space-x-4">
+                        <button type="button" id="fundNodeButton"
+                            class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-purple-500 rounded-md md:mb-0 hover:bg-purple-700 md:w-auto"
+                            data-primary="purple-500" data-rounded="rounded-md">
+                            デジタルアーカイブ保存料金を支払う
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                        <div x-data="{ modalOpen: false }" @keydown.escape.window="modalOpen = false"
+                            class="relative z-50 w-auto h-auto">
+                            <button @click="modalOpen=true" id="checkIrysNodeBalanceButton"
+                                class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none">残高を確認する</button>
+                            <template x-teleport="body">
+                                <div x-show="modalOpen"
+                                    class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
+                                    x-cloak>
+                                    <div x-show="modalOpen" x-transition:enter="ease-out duration-300"
+                                        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                        x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100"
+                                        x-transition:leave-end="opacity-0" @click="modalOpen=false"
+                                        class="absolute inset-0 w-full h-full bg-black bg-opacity-40"></div>
+                                    <div x-show="modalOpen" x-trap.inert.noscroll="modalOpen"
+                                        x-transition:enter="ease-out duration-300"
+                                        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                        x-transition:leave="ease-in duration-200"
+                                        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                        class="relative w-full py-6 bg-white px-7 sm:max-w-lg sm:rounded-lg">
+                                        <div class="flex items-center justify-between pb-2">
+                                            <h3 class="text-lg font-semibold">Check Balance message</h3>
+                                            <button @click="modalOpen=false"
+                                                class="absolute top-0 right-0 flex items-center justify-center w-8 h-8 mt-5 mr-5 text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50">
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="relative w-auto">
+                                            <p>Balance is sufficient, no funding needed. あなたの残高は十分です。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <div class="container items-center max-w-4xl px-5 mx-auto mt-16 text-center">
+                    <img src="https://cdn.devdojo.com/images/november2020/hero-image.png">
+                </div>
+            </section>
+
+
+            <h1 class="text-5xl font-extrabold dark:text-white" style="padding: 50px">2. Select archive<small
+                    class="ms-2 font-semibold text-gray-500 dark:text-gray-400"
+                    style="padding-left: 20px;">アップロードするファイルを選択
+                </small></h1>
+
+            <p class="mb-3 text-center text-gray-500 dark:text-gray-400">Track work across the enterprise through an
+                open,
+                collaborative platform. Link issues across Jira and ingest data from other software development tools,
+                so your IT
+                support and operations teams have richer contextual information to rapidly respond to requests,
+                incidents, and
+                changes.</p>
+
+            <div class="flex items-center justify-center w-full">
+                <label for="dropzone-file"
+                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                        </svg>
+                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
+                                upload</span>
+                            or drag and drop</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                    </div>
+                    <input id="dropzone-file" type="file" class="hidden" />
+                </label>
             </div>
-            <div class="mb-3">
-                <input type="text" id="ethereumAddressInput" placeholder="Ethereumアドレス" class="form-control">
-                <button id="addAccessControlButton" class="btn btn-primary mt-3">閲覧権を付与するユーザーを追加</button>
+
+
+
+            <div x-data="{ modalOpen: false }" @keydown.escape.window="modalOpen = false"
+                class="relative z-50 w-auto h-auto">
+                <button @click="modalOpen=true" id="makeArchiveIdButton"
+                    class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none">アップロードするファイルを選択</button>
+                <template x-teleport="body">
+                    <div x-show="modalOpen"
+                        class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen" x-cloak>
+                        <div x-show="modalOpen" x-transition:enter="ease-out duration-300"
+                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                            x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0" @click="modalOpen=false"
+                            class="absolute inset-0 w-full h-full bg-black bg-opacity-40"></div>
+                        <div x-show="modalOpen" x-trap.inert.noscroll="modalOpen"
+                            x-transition:enter="ease-out duration-300"
+                            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                            x-transition:leave="ease-in duration-200"
+                            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            class="relative w-full py-6 bg-white px-7 sm:max-w-lg sm:rounded-lg">
+                            <div class="flex items-center justify-between pb-2">
+                                <h3 class="text-lg font-semibold">keep the file</h3>
+                                <button @click="modalOpen=false"
+                                    class="absolute top-0 right-0 flex items-center justify-center w-8 h-8 mt-5 mr-5 text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="relative w-auto">
+                                <p>You have decided which file to upload. アップロードするファイルを決定しました。</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
             </div>
-            <button id="confirmAccessControlButton" class="btn btn-primary mb-3">閲覧権を確定する</button>
-            <button id="mintNFTButton" class="btn btn-info mb-3">NFTを発行</button>
-            <button id="encryptAndUploadButton" class="btn btn-success">デジタルアーカイブをアップロードする</button>
+
+
+
+
+
+            <h1 class="text-5xl font-extrabold dark:text-white" style="padding: 50px">3. ViewControle<small
+                    class="ms-2 font-semibold text-gray-500 dark:text-gray-400"
+                    style="padding-left: 20px;">大切な人だけがアーカイブにアクセス
+                </small></h1>
+
+            <p class="mb-3 text-center text-gray-500 dark:text-gray-400">Track work across the enterprise through an
+                open,
+                collaborative platform. Link issues across Jira and ingest data from other software development tools,
+                so your IT
+                support and operations teams have richer contextual information to rapidly respond to requests,
+                incidents, and
+                changes.</p>
+
+
+            <form class="max-w-sm mx-auto">
+                <div class="mb-5">
+                    <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ethreum
+                        address</label>
+                    <input type="text" id="ethereumAddressInput"
+                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                        required>
+                </div>
+                <!-- <div class="flex items-start mb-5">
+                    <div class="flex items-center h-5">
+                        <input type="text" value=""
+                            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                            required>
+                    </div>
+                    <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        style="padding-left: 10px;">閲覧権を与えることを <a href="#"
+                            class="text-blue-600 hover:underline dark:text-blue-500">許可する</a></label>
+                </div> -->
+                <!-- <button type="submit" id="permitAccessControlButton"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">閲覧権を付与するユーザーを追加</button> -->
+            </form>
+
+            <div x-data="{ modalOpen: false }" @keydown.escape.window="modalOpen = false"
+                class="relative z-50 w-auto h-auto" style="padding: 50px">
+                <button @click="modalOpen=true" id="confirmAccessControlButton"
+                    class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none">閲覧権を付与するユーザーを確定する</button>
+                <template x-teleport="body">
+                    <div x-show="modalOpen"
+                        class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen" x-cloak>
+                        <div x-show="modalOpen" x-transition:enter="ease-out duration-300"
+                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                            x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0" @click="modalOpen=false"
+                            class="absolute inset-0 w-full h-full bg-black bg-opacity-40"></div>
+                        <div x-show="modalOpen" x-trap.inert.noscroll="modalOpen"
+                            x-transition:enter="ease-out duration-300"
+                            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                            x-transition:leave="ease-in duration-200"
+                            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            class="relative w-full py-6 bg-white px-7 sm:max-w-lg sm:rounded-lg">
+                            <div class="flex items-center justify-between pb-2">
+                                <h3 class="text-lg font-semibold">Confirm Permmitted address</h3>
+                                <button @click="modalOpen=false"
+                                    class="absolute top-0 right-0 flex items-center justify-center w-8 h-8 mt-5 mr-5 text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="relative w-auto">
+                                <p>アップロードしたファイルの閲覧権を持つユーザーを確定しました。今後、閲覧権を付与されたユーザーのみがファイルにアクセスすることができます。</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+
+
+
+
+
+            <h1 class="text-5xl font-extrabold dark:text-white" style="padding: 40px">4. Mint NFT<small
+                    class="ms-2 font-semibold text-gray-500 dark:text-gray-400"
+                    style="padding-left: 20px;">デジタルアーカイブの所有権を示す証明書
+                </small></h1>
+
+            <p class="mb-3 text-center text-gray-500 dark:text-gray-400">Track work across the enterprise through an
+                open,
+                collaborative platform. Link issues across Jira and ingest data from other software development tools,
+                so your IT
+                support and operations teams have richer contextual information to rapidly respond to requests,
+                incidents, and
+                changes.</p>
+
+
+
+
+            <div x-data="{ modalOpen: false }" @keydown.escape.window="modalOpen = false"
+                class="relative z-50 w-auto h-auto">
+                <button @click="modalOpen=true" id="mintNFTButton"
+                    class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none">NFTを発行</button>
+                <template x-teleport="body">
+                    <div x-show="modalOpen"
+                        class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen" x-cloak>
+                        <div x-show="modalOpen" x-transition:enter="ease-out duration-300"
+                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                            x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0" @click="modalOpen=false"
+                            class="absolute inset-0 w-full h-full bg-black bg-opacity-40"></div>
+                        <div x-show="modalOpen" x-trap.inert.noscroll="modalOpen"
+                            x-transition:enter="ease-out duration-300"
+                            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                            x-transition:leave="ease-in duration-200"
+                            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            class="relative w-full py-6 bg-white px-7 sm:max-w-lg sm:rounded-lg">
+                            <div class="flex items-center justify-between pb-2">
+                                <h3 class="text-lg font-semibold">NFT issuance completed</h3>
+                                <button @click="modalOpen=false"
+                                    class="absolute top-0 right-0 flex items-center justify-center w-8 h-8 mt-5 mr-5 text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="relative w-auto">
+                                <p>NFTの発行が完了しました。（デジタルアーカイブの所有権を示す証明書。）tokenIDは、 5007199254740990 です。</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+
+            <h1 class="text-5xl font-extrabold dark:text-white" style="padding: 40px">5. Upload your archive<small
+                    class="ms-2 font-semibold text-gray-500 dark:text-gray-400"
+                    style="padding-left: 20px;">デジタルアーカイブを保存する
+                </small></h1>
+
+            <p class="mb-3 text-center text-gray-500 dark:text-gray-400">Track work across the enterprise through an
+                open,
+                collaborative platform. Link issues across Jira and ingest data from other software development tools,
+                so your IT
+                support and operations teams have richer contextual information to rapidly respond to requests,
+                incidents, and
+                changes.</p>
+
+            <div x-data="{ modalOpen: false }" @keydown.escape.window="modalOpen = false"
+                class="relative z-50 w-auto h-auto">
+                <button @click="modalOpen=true" id="encryptAndUploadButton"
+                    class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none">デジタルアーカイブをアップロードする</button>
+                <template x-teleport="body">
+                    <div x-show="modalOpen"
+                        class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen" x-cloak>
+                        <div x-show="modalOpen" x-transition:enter="ease-out duration-300"
+                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                            x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0" @click="modalOpen=false"
+                            class="absolute inset-0 w-full h-full bg-black bg-opacity-40"></div>
+                        <div x-show="modalOpen" x-trap.inert.noscroll="modalOpen"
+                            x-transition:enter="ease-out duration-300"
+                            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                            x-transition:leave="ease-in duration-200"
+                            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            class="relative w-full py-6 bg-white px-7 sm:max-w-lg sm:rounded-lg">
+                            <div class="flex items-center justify-between pb-2">
+                                <h3 class="text-lg font-semibold">Upload completed</h3>
+                                <button @click="modalOpen=false"
+                                    class="absolute top-0 right-0 flex items-center justify-center w-8 h-8 mt-5 mr-5 text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="relative w-auto">
+                                <p>デジタルアーカイブをアップロードしました。TransactionIDは CO9EpX0lekJEfXUOeXncUmMuG8eEp5WJHXl9U9yZUYA
+                                    です。ファイルタイプは PNG です。</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
         </section>
 
-        <section id="viewArchive" class="mb-5">
+
+        <section id="viewArchive" class="w-full px-8 py-16 bg-gray-100 xl:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex flex-col items-center md:flex-row">
+
+                    <div class="w-full space-y-5 md:w-3/5 md:pr-16">
+                        <p class="font-medium text-blue-500 uppercase" data-primary="blue-500">保存したデジタルアーカイブを閲覧する</p>
+                        <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">
+                            View Your Important Memories.
+                        </h2>
+                        <p class="text-xl text-gray-600 md:pr-16">Learn how to engage with your visitors and teach them
+                            about
+                            your mission. We're revolutionizing the way customers and businesses interact.</p>
+                    </div>
+
+                    <div class="w-full mt-16 md:mt-0 md:w-2/5">
+                        <div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 rounded-lg shadow-2xl px-7"
+                            data-rounded="rounded-lg" data-rounded-max="rounded-full">
+                            <h3 class="mb-6 text-2xl font-medium text-center">Input your TransactionID and
+                                EncryptedFileType
+                            </h3>
+                            <input type="text" name="archiveId" id="archiveIdInput"
+                                class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                                data-rounded="rounded-lg" data-primary="blue-500" placeholder="Transaction ID">
+                            <input type="text" name="encryptedFileType" id="encryptedFileTypeInput"
+                                class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                                data-rounded="rounded-lg" data-primary="blue-500" placeholder="Encrypted File Type">
+
+                            <div x-data="{ modalOpen: false }" @keydown.escape.window="modalOpen = false"
+                                class="relative z-50 w-auto h-auto">
+                                <button id="decryptFileButton" @click="modalOpen=true"
+                                    class="w-full px-3 py-4 font-medium text-white bg-blue-600 rounded-lg"
+                                    data-primary="blue-600" data-rounded="rounded-lg">View Digital Archive</button>
+                                <template x-teleport="body">
+                                    <div x-show="modalOpen"
+                                        class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
+                                        x-cloak>
+                                        <div x-show="modalOpen" x-transition:enter="ease-out duration-300"
+                                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                            x-transition:leave="ease-in duration-300"
+                                            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                                            @click="modalOpen=false"
+                                            class="absolute inset-0 w-full h-full bg-black bg-opacity-40"></div>
+                                        <div x-show="modalOpen" x-trap.inert.noscroll="modalOpen"
+                                            x-transition:enter="ease-out duration-300"
+                                            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                            x-transition:leave="ease-in duration-200"
+                                            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                            class="relative w-full py-6 bg-white px-7 sm:max-w-lg sm:rounded-lg">
+                                            <div class="flex items-center justify-between pb-2">
+                                                <h3 class="text-lg font-semibold">DataURL to view </h3>
+                                                <button @click="modalOpen=false"
+                                                    class="absolute top-0 right-0 flex items-center justify-center w-8 h-8 mt-5 mr-5 text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="relative w-auto">
+                                                <p>Data URLは、 https://arweave.net/
+                                                    CO9EpX0lekJEfXUOeXncUmMuG8eEp5WJHXl9U9yZUYA です。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                            <p id="viewUrl" class="mt-3"></p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="text-gray-700 bg-white body-font" {!! $attributes ?? '' !!}>
+            <div class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
+                <a href="#_" class="text-xl font-black leading-none text-gray-900 select-none logo">LifeChain
+                    platform<span class="text-indigo-600">.</span></a>
+                <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">&copy; 2021
+                    Tails -
+                    Tailwindcss Page Builder
+                </p>
+                <span class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                        </svg>
+                    </a>
+
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">Dribbble</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </span>
+            </div>
+        </section>
+
+
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script type="module" src="./js/ethers.js"></script>
+    <!-- <script type="module" src="./node_modules/@irys/sdk/build/cjs/web/irys.js"></script>
+    <script type=" module" src="./js/script.js"></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <!-- <script type="module">
+        import { providers, ethers } from "https://cdn.ethers.io/lib/ethers-5.2.esm.min.js";
+        // Your code here...
+    </script> -->
+    <!-- <script type="module" src="./js/mockup.js"></script> -->
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <button id="encryptAndUploadButton" class="btn btn-success">デジタルアーカイブをアップロードする</button>  -->
+
+<!-- <button id="mintNFTButton" class="btn btn-info mb-3">NFTを発行</button> -->
+
+
+<!-- <h1 class="flex items-center text-5xl font-extrabold dark:text-white" style="padding-right: 20px;">
+            ウォレットを接続する<span
+                class="bg-blue-100 text-blue-800 text-2xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2">MetaMask</span>
+        </h1>
+        
+        
+        <section id="connectMetamask" class="mb-5" x-data="{ balance: '' }">
+            <h2 class="text-xl font-bold mb-3">MetaMaskとの接続</h2>
+            <button id="connectMetamaskButton"
+                class="btn bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded mb-3"
+                @click="/* Alpine.jsを使ったイベントハンドリング */">MetaMaskと接続</button>
+            <p id="balanceMessage" x-text="balance"></p>
+        </section> -->
+
+
+
+<!-- <button id="confirmAccessControlButton" class="btn btn-primary mb-3">閲覧権を確定する</button> -->
+
+<!-- <div class="mb-3">
+    <input type="file" id="fileInput" class="form-control">
+    <button id="makeArchiveIdButton" class="btn btn-primary mt-3">アーカイブIDを生成する</button> !!!!!!!!!!!!!makeArchiveIdButtonはどこかで使わなければいけない！！！！！！！
+</div> -->
+
+
+<!-- <div class="mb-3">
+                <input type="text" id="ethereumAddressInput" placeholder="Ethereumアドレス" class="form-control">
+                <button id="addAccessControlButton" class="btn btn-primary mt-3">閲覧権を付与するユーザーを追加</button>
+            </div> -->
+
+<!-- <section id="viewArchive" class="mb-5">
             <h2>保存したデジタルアーカイブを閲覧する</h2>
             <div class="mb-3">
                 <input type="text" id="archiveIdInput" placeholder="アーカイブID" class="form-control">
@@ -47,17 +800,9 @@
                 <button id="decryptFileButton" class="btn btn-primary mt-3">デジタルアーカイブを閲覧する</button>
             </div>
             <p id="viewUrl" class="mt-3"></p>
-        </section>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@lit-protocol/lit-node-client-vanilla/lit-node-client.js"></script>
-    <script type="module" src="./js/script.js"></script>
+        </section> -->
 
-</body>
 
-</html>
 
 
 
