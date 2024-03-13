@@ -13,6 +13,9 @@
 物理的資産ばかり重視され、精神的資産の相続がきちんと行われていないこの現状は、顕在化し始めている社会問題である。
 
 
+![image](https://github.com/shodaimomiyama/Osakaweb3_LifeChain/assets/138434427/9f30bd17-951f-487e-b8ac-3dd03812b1b2)
+
+
 ## 課題の解決方法
 
 人生を通して培った精神的資産（デジタルアーカイブ）を
@@ -30,6 +33,10 @@
 データの暗号化を行うプロトコル(Lit Protocol)の利用により、データへのアクセス後、特定の人（ウォレットアドレスの保持者）のみが暗号化されたデータの復号化をできるようにすることで、閲覧者をコントロールする。
 
 
+![image](https://github.com/shodaimomiyama/Osakaweb3_LifeChain/assets/138434427/f124df31-2fcc-4a69-9d1c-438690a950d7)
+
+
+
 ## 利用している技術
 
 #### Lit protocol: 
@@ -42,9 +49,17 @@ Arweaveにアップロードしたデジタルアーカイブの出自の管理
 デジタルアーカイブを半永久的に保存
 
 
+![image](https://github.com/shodaimomiyama/Osakaweb3_LifeChain/assets/138434427/265bd83b-3fa4-4547-94e0-3bb9587a7063)
+
+
+
 ## システム概念図
 
-![image](https://github.com/shodaimomiyama/Osakaweb3_LifeChain/assets/138434427/91a5faa9-70d0-4189-90e0-d771064869cd)
+![image](https://github.com/shodaimomiyama/Osakaweb3_LifeChain/assets/138434427/e02fe2d8-f3d1-4672-82c9-61b56ee5eab4)
+
+![image](https://github.com/shodaimomiyama/Osakaweb3_LifeChain/assets/138434427/07d708b7-60b4-445a-881c-f374b69c9cc1)
+
+
 
 
 
@@ -61,18 +76,10 @@ Arweaveにアップロードしたデジタルアーカイブの出自の管理
 
 
 
-## 行き詰まりポイント
+## デモ動画
 
-Initialization classのimport { providers, ethers } from "ethers";について、htmlファイルをブラウザで表示させてjsファイルと繋ごうとすると、consoleにUncaught TypeError: Failed to resolve module specifier "ethers". Relative references must start with either "/", "./", or "../".のエラー。
+https://youtu.be/bOkG5lgF1LQ
 
-最新のJavaScriptでは、バンドラーを使用せずにimport文をフロントエンドで直接動作させることが可能とのことなので、import { ethers } from 'https://cdn.ethers.io/lib/ethers-5.2.esm.min.js'; に変更してみたが、
 
-ccess to script at 'https://cdn.ethers.io/lib/ethers-5.2.esm.min.js' from origin 'http://127.0.0.1:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-
-GET https://cdn.ethers.io/lib/ethers-5.2.esm.min.js net::ERR_FAILED 200 (OK)
-
-のconsole出力。
-
-Initialization classのjsファイルをブラウザで使用するには、どうすれば？
 
 
