@@ -62,20 +62,6 @@ Arweaveにアップロードしたデジタルアーカイブの出自の管理
 
 
 
-
-## システム設計図
-
-クラス図
-
-<img width="707" alt="スクリーンショット 2024-01-15 3 55 47" src="https://github.com/shodaimomiyama/Osakaweb3_LifeChain/assets/138434427/8e679820-3213-4d41-bb6a-ec5f3c24da29">
-
-シーケンス図
-
-<img width="707" alt="スクリーンショット 2024-01-15 3 58 43" src="https://github.com/shodaimomiyama/Osakaweb3_LifeChain/assets/138434427/10cba503-e581-4e85-b752-e7ca5efa0d30">
-
-
-
-
 ## デモ動画
 
 https://youtu.be/bOkG5lgF1LQ
