@@ -69,3 +69,11 @@ https://youtu.be/bOkG5lgF1LQ
 
 
 
+## プレゼン動画
+
+https://youtu.be/bfj-6VDFXF4![image](https://github.com/shodaimomiyama/Osakaweb3_LifeChain/assets/138434427/9282b73f-f213-4436-8fc1-19b0883c6d75)
+
+
+
+
+
